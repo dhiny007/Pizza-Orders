@@ -1,0 +1,12 @@
+<a style='cursor: pointer;' class='list-group-item clearfix' [routerLink]="[id]" routerLinkActive='active'>
+<div class='float-left'>
+  <div *ngFor="let customer of customerData">
+    <h5 class="list-group-item-heading"><strong>Customer Name:</strong> {{customer.customerName}}</h5>
+    <ul style="list-style-type:none">
+      <li class='list-group-item-text'><strong>Number Of Items:</strong> {{customer.numberOfItems}}</li>
+      <li class='list-group-item-text'><strong>Total Amount:</strong> {{customer.totalAmount}}</li>
+      <li class='list-group-item-text'><strong>Status:</strong> {{customer.status}}</li>
+    </ul>
+  </div>
+
+</div>
