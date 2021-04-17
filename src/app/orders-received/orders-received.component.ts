@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Customer } from '../customer-details.model'
 
 @Component({
   selector: 'app-orders-received',
@@ -7,21 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrdersReceivedComponent implements OnInit {
 
-  id:string;
+  @Input() id:string;
+  @Input() customerData:Customer;
+  selected=false;
 
-  customerData=[
-    {customerName:'Robert Downey Jr', numberOfItems:3,totalAmount:600,status:status[0]},
-    {customerName:'Cristiano Ronaldo', numberOfItems:2,totalAmount:400,status:status[0]},
-    {customerName:'MS Dhoni', numberOfItems:4,totalAmount:700,status:status[0]},
-    {customerName:'Bill Gates', numberOfItems:1,totalAmount:200,status:status[0]},
-    {customerName:'Elon Musk', numberOfItems:5,totalAmount:1200,status:status[0]}
-  ];
 
-  status=['Order Received','Preparing','Ready To Serve']
-
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
 
+  onChangeStatus(){
+
+  }
+
+  onViewDetails(){
+    this.selected=!this.selected;
+    console.log(this.selected)
+    if(this.selected==true){
+      this.router.navigate(['id']);
+    }
+    else{
+      this.router.navigate(['']);
+    }
+  }
 }
