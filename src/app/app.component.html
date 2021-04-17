@@ -1,11 +1,3 @@
-<div class='container-fluid'>
-  <div class='row'>
-    <div class='offset-md-2 col-md-4'>
-      <app-orders-received *ngFor='let customer of customerEntries;let i=index' [customerData]='customer' [id]='i+1'></app-orders-received>
-    </div>
-    <div class='offset-md-1 col-md-5'>
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-</div>
+<app-orders-received [customerData]='customerEntries' [itemStatus]='status'></app-orders-received>
+
 

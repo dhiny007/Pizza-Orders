@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { Customer } from '../customer-details.model';
 
 @Component({
   selector: 'app-order-details',
@@ -7,8 +7,9 @@ import { ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./order-details.component.css']
 })
 export class OrderDetailsComponent implements OnInit {
-  index:string;
-  items:[
+  @Input() customer:Customer;
+
+  items=[
     {customerId:1,orderedItems:[
       {itemName:"Margharita",price:150},
       {itemName:"Peppy Paneer",price:200},
@@ -36,13 +37,14 @@ export class OrderDetailsComponent implements OnInit {
     ]},
   ]
 
-  constructor(private route:ActivatedRoute) { }
+  constructor() {
+  }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params:Params)=>{
-      this.index=params['id'];
-    })
+
   }
+
+
 
 
 }
