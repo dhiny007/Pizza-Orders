@@ -9,11 +9,12 @@ import { Customer } from '../customer-details.model'
 })
 export class OrdersReceivedComponent implements OnInit {
 
-  @Input() id:string;
+  // @Input() id:string;
   @Input() customerData:Customer[];
   @Input() itemStatus:Array<string>;
   index:number;
   customer:Customer;
+  isSelected=false;
 
 
   constructor(private router:Router) { }
@@ -31,7 +32,10 @@ export class OrdersReceivedComponent implements OnInit {
     console.log(this.customerData)
   }
 
-  onViewDetails(customer){
+  onViewDetails(customer,i){
     this.customer=customer;
+    if(this.index==i){
+      this.isSelected=true;
+    }
   }
 }

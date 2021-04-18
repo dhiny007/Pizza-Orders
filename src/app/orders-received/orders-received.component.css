@@ -5,3 +5,14 @@ a{
 .selectedItem{
   background-color:darkgoldenrod
 }
+
+.container-fluid{
+  margin-top:5%;
+}
+
+.list-group{
+  max-height: 500px;
+  margin-bottom: 10px;
+  overflow:scroll;
+  -webkit-overflow-scrolling: touch;
+}

@@ -1,1 +1,27 @@
-the customer object: {{customer|json}};
+<div *ngIf='customer'>
+  <div class='text-center'>
+    <h3 class='mb-4'>Order Details</h3>
+  </div>
+  <p style='font-size: 20px;'><strong>Customer Name: </strong>{{customer.customerName}}</p>
+  <div class='table-responsive'>
+    <table class='table'>
+      <thead>
+        <th scope="col">Item Name</th>
+        <th scope="col">Item Price</th>
+      </thead>
+      <tbody>
+        <tr *ngFor='let item of currentItem'>
+          <td>{{item.itemName}}</td>
+          <td>{{item.price}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class='text-center mr-4 mt-4 mb-4'>
+      <h4><strong>Total Amount:Rs {{totalAmount}}</strong></h4>
+    </div>
+    <h4><strong>Delivery Address:</strong></h4>
+    <p style='font-size: 17px;max-width: 200px;'>{{address}}</p>
+  </div>
+</div>
+
+

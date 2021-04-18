@@ -1,4 +1,5 @@
 export class Customer{
+  public customerId:number;
   public customerName:string;
   public numberOfItems:number;
   public totalAmount:number;
