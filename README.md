@@ -4,7 +4,7 @@ Read the instructions below to understand how it works.
 
 ##**Instructions**
 
-* Open the command prompt by running the command **cmd**, and then navigate to the folder named **Pizza-Task** through command prompt. Once done, run the command **ng serve**.
+* Open the command prompt by running the command **cmd**, and then navigate to the folder named **Pizza-Task** through command prompt. Run the command **npm install** and after that, you will see a node_modules folder with the various packages used.Once done, run the command **ng serve**.
 * Now go to the browser and access the URL **http://localhost:4200/** to view the Foodkart application.
 
 ##**Technologies**
