@@ -15,6 +15,7 @@ export class OrdersReceivedComponent implements OnInit {
   index:number;
   customer:Customer;
   isSelected=false;
+  count=0;
 
 
   constructor(private router:Router) { }
@@ -23,11 +24,16 @@ export class OrdersReceivedComponent implements OnInit {
   }
 
   onChangeStatus(customer){
+    this.count++;
     let status=customer.status;
     this.index=this.itemStatus.indexOf(status);
     console.log(this.index)
     if(this.index<this.itemStatus.length-1){
       customer.status=this.itemStatus[this.index+1];
+    }
+    if(this.index==this.itemStatus.length-2){
+      customer.isDisabled=true;
+      console.log(customer);
     }
     console.log(this.customerData)
   }

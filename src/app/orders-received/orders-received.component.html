@@ -13,7 +13,7 @@
             <li class='list-group-item-text'><strong>Total Amount: </strong>{{customer.totalAmount}}</li>
             <li class='list-group-item-text'><strong>Status: </strong>{{customer.status}}</li>
           </ul>
-          <button class='btn-sm btn-success mt-2' (click)='onChangeStatus(customer)'>Change Status</button>
+          <button class='btn-sm btn-success mt-2' (click)='onChangeStatus(customer)' [ngClass]="{'disabled':customer.isDisabled}">Change Status</button>
         </a>
       </div>
     </ul>

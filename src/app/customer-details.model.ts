@@ -4,4 +4,5 @@ export class Customer{
   public numberOfItems:number;
   public totalAmount:number;
   public status:string;
+  public isDisabled:boolean;
 }
