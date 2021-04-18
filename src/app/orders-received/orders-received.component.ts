@@ -34,8 +34,8 @@ export class OrdersReceivedComponent implements OnInit {
 
   onViewDetails(customer,i){
     this.customer=customer;
-    if(this.index==i){
-      this.isSelected=true;
-    }
+    this.index=i+1;
+    this.isSelected=true;
+
   }
 }

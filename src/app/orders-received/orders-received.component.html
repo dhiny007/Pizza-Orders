@@ -6,7 +6,7 @@
       </div>
       <ul class='list-group'>
       <div *ngFor='let customer of customerData;let i=index'>
-        <a style='cursor: pointer;' class='list-group-item clearfix' (click)='onViewDetails(customer,i)' [ngClass]="{'selectedItem':isSelected==true}">
+        <a style='cursor: pointer;' class='list-group-item clearfix' (click)='onViewDetails(customer,i)' [ngStyle]="{'background-color':customer['customerId']===index?'darkgoldenrod':'white'}">
           <h5 class='list-group-item-heading'><strong>Customer Name: </strong>{{customer.customerName}}</h5>
           <ul style="list-style-type:none;padding:0px;margin:0px">
             <li class='list-group-item-text'><strong>Number Of Items: </strong>{{customer.numberOfItems}}</li>
