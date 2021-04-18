@@ -1,0 +1,6 @@
+.disabled{
+  pointer-events: none;
+  background-color: grey;
+  border: none;
+  opacity: 0.5;
+}

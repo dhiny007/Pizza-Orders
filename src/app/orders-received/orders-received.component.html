@@ -1,19 +1,19 @@
 <div class='container-fluid'>
   <div class='row'>
-    <div class='offset-md-2 col-md-4'>
+    <div class='offset-md-1 col-md-4'>
       <div class='text-center'>
         <h3 class='mb-4'>List of Orders</h3>
       </div>
       <ul class='list-group'>
       <div *ngFor='let customer of customerData;let i=index'>
-        <a style='cursor: pointer;' class='list-group-item clearfix' (click)='onViewDetails(customer,i)' [ngStyle]="{'background-color':customer['customerId']===index?'darkgoldenrod':'white'}">
+        <a style='cursor: pointer;' class='list-group-item clearfix' (click)='viewMemberDetails(customer,i)' [ngStyle]="{'background-color':customer['customerId']===customerId?'darkgoldenrod':'white'}">
           <h5 class='list-group-item-heading'><strong>Customer Name: </strong>{{customer.customerName}}</h5>
           <ul style="list-style-type:none;padding:0px;margin:0px">
             <li class='list-group-item-text'><strong>Number Of Items: </strong>{{customer.numberOfItems}}</li>
             <li class='list-group-item-text'><strong>Total Amount: </strong>{{customer.totalAmount}}</li>
             <li class='list-group-item-text'><strong>Status: </strong>{{customer.status}}</li>
           </ul>
-          <button class='btn-sm btn-success mt-2' (click)='onChangeStatus(customer)' [ngClass]="{'disabled':customer.isDisabled}">Change Status</button>
+          <!-- <button class='btn-sm btn-success mt-2' (click)='onChangeStatus(customer)' [ngClass]="{'disabled':customer.isDisabled}">Change Status</button> -->
         </a>
       </div>
     </ul>

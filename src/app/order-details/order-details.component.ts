@@ -15,6 +15,9 @@ export class OrderDetailsComponent implements OnChanges {
   address:string;
   progressValue=50;
   count=0;
+  nextStatus='Preparing';
+  status:string;
+  tax:number;
 
   items=[
     {customerId:1,orderedItems:[
@@ -56,40 +59,49 @@ export class OrderDetailsComponent implements OnChanges {
   constructor() {
   }
 
-  // statusIndex(){
-  //   this.count=0;
-  //   this.statusTracker.push(this.customer.status);
-  //   console.log(this.statusTracker,'hehehe');
-  //   if(this.statusArray.indexOf(this.customer.status)>=0){
-  //     this.count++;
-  //     if(this.statusArray.indexOf(this.customer.status)>=1){
-  //       this.count++;
-  //       if(this.statusArray.indexOf(this.customer.status)>=2){
-  //         this.count++;
-  //         }
-  //     }
-  //   }
-  //   console.log(this.count,'COUNT');
-  // }
+  //On Click of the Change Status button, we get the previous delivery status and update it to the next status
+  changeStatus(status){
+    //Incrementing clickCount value which in turn keeps the progress bar updated with the correct status.
+    this.customer.clickCount++;
+    status=this.nextStatus;
+    let index=this.statusArray.indexOf(status);
+    if(index<this.statusArray.length-1){
+      this.nextStatus=this.statusArray[index+1];
+      this.customer.status=status;
+    }
+    /*If the current status already is the final status, then disable the Mark button and also
+     update the customer status to "Ready to Serve" */
+    if(index==this.statusArray.length-1){
+      this.customer.status=status;
+      this.customer.isDisabled=true;
+    }
+    this.status=this.nextStatus;
+    return this.nextStatus;
+  }
 
   ngOnChanges(): void {
+    this.totalAmount=0;
     if(this.customer){
-      console.log(this.customer.customerId);
+      /*When we switch to some other customer view and come back to this customer,
+      we preserve the delivery state which was present for this customer*/
+      if(this.customer.status==this.statusArray[this.statusArray.length-1]){
+        this.nextStatus=this.customer.status;
+      }
+      else{
+        let index=this.statusArray.indexOf(this.customer.status);
+        this.nextStatus=this.statusArray[index+1];
+      }
+      /*Fetch all items that the current customer has ordered and calculate the total amount.
+      Also set the customer's delivery address*/
       for(let i=0;i<this.items.length;i++){
         if(this.customer.customerId==this.items[i].customerId){
-          this.statusTracker.push(this.customer.status);
-          console.log(this.statusTracker,'ROFL');
-          console.log(this.items[i]);
-          this.totalAmount=0;
           this.currentItem=this.items[i].orderedItems;
           this.address=this.items[i].deliveryAddress;
           for(let j=0;j<this.items[i].orderedItems.length;j++){
             this.totalAmount+=this.items[i].orderedItems[j].price;
-            console.log(this.totalAmount,this.items[i].orderedItems[j].price)
           }
-        }
-        else{
-          this.statusTracker=[];
+          this.tax=this.totalAmount*0.1;
+          this.totalAmount=this.totalAmount + this.tax;
         }
 
       }

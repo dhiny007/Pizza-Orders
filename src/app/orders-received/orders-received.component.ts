@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
 import { Customer } from '../customer-details.model'
 
 @Component({
@@ -9,40 +8,22 @@ import { Customer } from '../customer-details.model'
 })
 export class OrdersReceivedComponent implements OnInit {
 
-  // @Input() id:string;
   @Input() customerData:Customer[];
   @Input() itemStatus:Array<string>;
   index:number;
   customer:Customer;
-  isSelected=false;
-  count=0;
+  customerId:number;
 
 
-  constructor(private router:Router) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
-  onChangeStatus(customer){
-    customer.clickCount++;
-    this.count++;
-    let status=customer.status;
-    this.index=this.itemStatus.indexOf(status);
-    console.log(this.index)
-    if(this.index<this.itemStatus.length-1){
-      customer.status=this.itemStatus[this.index+1];
-    }
-    if(this.index==this.itemStatus.length-2){
-      customer.isDisabled=true;
-      console.log(customer);
-    }
-    console.log(this.customerData)
-  }
-
-  onViewDetails(customer,i){
+  /*Fetch the current customer entry and pass it on to the order details component for rendering the order details of the customer
+    Also we set the index of the current element index so that we can use the index to highlight the selected customer on frontend*/
+  viewMemberDetails(customer,i){
     this.customer=customer;
-    this.index=i+1;
-    this.isSelected=true;
-
+    this.customerId=customer.customerId;
   }
 }

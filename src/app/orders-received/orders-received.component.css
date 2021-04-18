@@ -17,12 +17,5 @@ a{
   -webkit-overflow-scrolling: touch;
 }
 
-/* button[disabled]{
-  background-color: grey;
-} */
 
-.disabled{
-  pointer-events: none;
-  background-color: grey;
-  opacity: 0.5;
-}
+
