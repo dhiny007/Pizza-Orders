@@ -2,16 +2,16 @@
 
 Read the instructions below to understand how it works.
 
-##**Instructions**
+## **Instructions**
 
 * Open the command prompt by running the command **cmd**, and then navigate to the folder named **Pizza-Task** through command prompt. Run the command **npm install** and after that, you will see a node_modules folder with the various packages used.Once done, run the command **ng serve**.
 * Now go to the browser and access the URL **http://localhost:4200/** to view the Foodkart application.
 
-##**Technologies**
+## **Technologies**
 
 * This application is build completely using **Angular 10**,**CSS3** and **Bootstrap 4.6**.
 
-##**Features**
+## **Features**
 
 * The application focuses on displaying the list of various orders which customers have placed and give them a live order tracking status.
 * Initally we will be on the **List Of Orders** page where we have the list of various orders customers have placed along with their current order statuses and the total amount billed.
