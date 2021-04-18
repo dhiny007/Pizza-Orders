@@ -1,27 +1,20 @@
 # PizzaTask
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
+Read the instructions below to understand how it works.
 
-## Development server
+##**Instructions**
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* Open the command prompt by running the command **cmd**, and then navigate to the folder named **Pizza-Task** through command prompt. Once done, run the command **ng serve**.
+* Now go to the browser and access the URL **http://localhost:4200/** to view the Foodkart application.
 
-## Code scaffolding
+##**Technologies**
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* This application is build completely using **Angular 10**,**CSS3** and **Bootstrap 4.6**.
 
-## Build
+##**Features**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+* The application focuses on displaying the list of various orders which customers have placed and give them a live order tracking status.
+* Initally we will be on the **List Of Orders** page where we have the list of various orders customers have placed along with their current order statuses and the total amount billed.
+* On click of any of the customer entries, a new **Order Details** page opens up where we can see various types of pizzas that customer has ordered and the total amount,the delivery address, a progress bar which displays the current status of the order and a "**Mark as**" button just beside the delivery address to update the status of that order.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+**HAVE FUN EXPLORING!!**

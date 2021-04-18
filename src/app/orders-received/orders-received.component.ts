@@ -20,9 +20,10 @@ export class OrdersReceivedComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  /*Fetch the current customer entry and pass it on to the order details component for rendering the order details of the customer
-    Also we set the index of the current element index so that we can use the index to highlight the selected customer on frontend*/
-  viewMemberDetails(customer,i){
+/* Fetch the current customer details to pass it to the order details component
+   and identify the current customer based on the customer id so that we
+   can use it to highlight the customer entry on the frontend. */
+  viewMemberDetails(customer){
     this.customer=customer;
     this.customerId=customer.customerId;
   }
