@@ -24,6 +24,7 @@ export class OrdersReceivedComponent implements OnInit {
   }
 
   onChangeStatus(customer){
+    customer.clickCount++;
     this.count++;
     let status=customer.status;
     this.index=this.itemStatus.indexOf(status);

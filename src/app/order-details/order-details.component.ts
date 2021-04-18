@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { AfterViewChecked, Component, Input, OnChanges } from '@angular/core';
 import { Customer } from '../customer-details.model';
 
 @Component({
@@ -8,9 +8,13 @@ import { Customer } from '../customer-details.model';
 })
 export class OrderDetailsComponent implements OnChanges {
   @Input() customer:Customer;
+  @Input() statusArray:Array<string>;
+  statusTracker=[];
   currentItem:Object;
   totalAmount=0;
   address:string;
+  progressValue=50;
+  count=0;
 
   items=[
     {customerId:1,orderedItems:[
@@ -52,11 +56,29 @@ export class OrderDetailsComponent implements OnChanges {
   constructor() {
   }
 
+  // statusIndex(){
+  //   this.count=0;
+  //   this.statusTracker.push(this.customer.status);
+  //   console.log(this.statusTracker,'hehehe');
+  //   if(this.statusArray.indexOf(this.customer.status)>=0){
+  //     this.count++;
+  //     if(this.statusArray.indexOf(this.customer.status)>=1){
+  //       this.count++;
+  //       if(this.statusArray.indexOf(this.customer.status)>=2){
+  //         this.count++;
+  //         }
+  //     }
+  //   }
+  //   console.log(this.count,'COUNT');
+  // }
+
   ngOnChanges(): void {
     if(this.customer){
       console.log(this.customer.customerId);
       for(let i=0;i<this.items.length;i++){
         if(this.customer.customerId==this.items[i].customerId){
+          this.statusTracker.push(this.customer.status);
+          console.log(this.statusTracker,'ROFL');
           console.log(this.items[i]);
           this.totalAmount=0;
           this.currentItem=this.items[i].orderedItems;
@@ -66,12 +88,11 @@ export class OrderDetailsComponent implements OnChanges {
             console.log(this.totalAmount,this.items[i].orderedItems[j].price)
           }
         }
+        else{
+          this.statusTracker=[];
+        }
 
       }
     }
   }
-
-
-
-
 }

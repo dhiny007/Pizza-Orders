@@ -5,4 +5,5 @@ export class Customer{
   public totalAmount:number;
   public status:string;
   public isDisabled:boolean;
+  public clickCount:number;
 }
